@@ -22,3 +22,18 @@ var comics = []entities.Comic{
 func GetComics(ctx *gin.Context) {
 	ctx.IndentedJSON(http.StatusOK, comics)
 }
+
+// getComic produces JSON payload for given comic ID
+func GetComic(ctx *gin.Context) {
+	id := ctx.Param("id")
+
+	for _, a := range comics {
+		if a.ID == id {
+			ctx.IndentedJSON(http.StatusOK, a)
+			return
+		}
+	}
+
+	ctx.IndentedJSON(http.StatusOK, gin.H{"message": "comic not found"})
+
+}
