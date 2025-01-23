@@ -5,7 +5,7 @@ Implementing a cache service for learning
 - Simple api (go/gin) (midgard)
 - Db is either csv/flatfile
 - Simple web gui -> CRUD
-- Cache service
+- Cache service (asgard)
 
 
 ## API Requirements
