@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"midgard/entities"
+	"midgard/time"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -20,6 +21,7 @@ var comics = []entities.Comic{
 
 // getComics produces JSON payload of all comics in store
 func GetComics(ctx *gin.Context) {
+	time.SimulateDbLatency()
 	ctx.IndentedJSON(http.StatusOK, comics)
 }
 
@@ -29,6 +31,7 @@ func GetComic(ctx *gin.Context) {
 
 	for _, a := range comics {
 		if a.ID == id {
+			time.SimulateDbLatency()
 			ctx.IndentedJSON(http.StatusOK, a)
 			return
 		}
