@@ -7,6 +7,7 @@ fn main() {
     let d = Arc::new(Mutex::new(4)); // int wrapped in atomic rc with mutual exc lock
     println!("a: {:?}, b: {:?}, c: {:?}, d: {:?}", a, b, c, d);
     int_things();
+    ints_and_floats();
 }
 
 
@@ -25,4 +26,23 @@ fn add(x: i32, y: i32) -> i32 {
     x + y
     // note x + y; with semicolon produces return type of unit: ()
     // rather than i32.
+}
+
+fn ints_and_floats() {
+    let twenty = 20;
+    let twenty_one: i32 = 21;
+    let twenty_two = 22i32;
+    let addition = twenty + twenty_one + twenty_two;
+    println!("{} + {} + {} = {}", twenty, twenty_one, twenty_two, addition);
+
+    let one_mil: i64 = 1_000_000; // we can use underscores here for readability
+    println!("{}", one_mil.pow(2));
+    
+    let forty_twos = [
+        42.0,
+        42f32,
+        42.0_f32,
+    ];
+
+    println!("{:02}", forty_twos[0]);
 }
