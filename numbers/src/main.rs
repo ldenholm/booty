@@ -1,3 +1,4 @@
+use std::convert::TryInto;
 use std::rc::Rc;
 use std::sync::{Arc, Mutex};
 fn main() {
@@ -9,6 +10,8 @@ fn main() {
     //int_things();
     //ints_and_floats();
     base_2_8_16();
+    equalities_inequalities();
+    try_into();
 }
 
 
@@ -57,4 +60,35 @@ fn base_2_8_16() {
     println!("base 2: {:b} {:b} {:b}", three, thirty, three_hundred);
     println!("base 8: {:o} {:o} {:o}", three, thirty, three_hundred);
     println!("base 16: {:x} {:x} {:x}", three, thirty, three_hundred);
+}
+
+fn equalities_inequalities() {
+    // rust strict typing restricts comparators to a single type only
+    let a: i8 = 10;
+    let b: u32 = 40000;
+
+    /* 
+    if a < b: {
+    //     println!("10 is less than 40000");
+        }
+    */
+
+    // we can cast b to the same type as a:
+    // note: its better to promote to the larger
+    // type versus demoting to a smaller type.
+    if (a as u32) < b {
+        println!("10 is less than 40000");
+    }
+}
+
+fn try_into() {
+    let a: i32 = 10;
+    let b: u16 = 100;
+
+    // use try_into() for greater control of type conversion
+    let b_ = b.try_into().unwrap();
+    // we unwrap to handle successful Result monad and extract value
+    if a < b_ {
+        println!("Ten is less than one hundred.");
+    }
 }
