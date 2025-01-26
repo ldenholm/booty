@@ -6,8 +6,9 @@ fn main() {
     let c = Rc::new(Box::new(3)); // boxed integer wrapped within reference counter 
     let d = Arc::new(Mutex::new(4)); // int wrapped in atomic rc with mutual exc lock
     println!("a: {:?}, b: {:?}, c: {:?}, d: {:?}", a, b, c, d);
-    int_things();
-    ints_and_floats();
+    //int_things();
+    //ints_and_floats();
+    base_2_8_16();
 }
 
 
@@ -45,4 +46,15 @@ fn ints_and_floats() {
     ];
 
     println!("{:02}", forty_twos[0]);
+}
+
+fn base_2_8_16() {
+    // prefix ints with numeric literals during assignment
+    let three = 0b11;
+    let thirty = 0o36;
+    let three_hundred = 0x12C;
+    println!("base 10: {} {} {}", three, thirty, three_hundred);
+    println!("base 2: {:b} {:b} {:b}", three, thirty, three_hundred);
+    println!("base 8: {:o} {:o} {:o}", three, thirty, three_hundred);
+    println!("base 16: {:x} {:x} {:x}", three, thirty, three_hundred);
 }
