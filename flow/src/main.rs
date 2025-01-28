@@ -49,4 +49,27 @@ fn main() {
         print!("{x}");
         print!("\n");
     }
+
+    needle_haystack();
+    
+}
+
+
+fn needle_haystack() {
+    let needle = 42;
+    let haystack = [1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862];
+
+
+    // example of match statement, _ assigns default for all values
+    // while 42 or 132 result in "hit!" binding to 'result' variable.
+    for item in &haystack {
+        let result = match item {
+            42 | 132 => "hit!",
+            _ => "miss",
+        };
+
+        if result == "hit!" {
+            println!("{}: {}", item, result);
+        }
+    }
 }
