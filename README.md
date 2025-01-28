@@ -1,5 +1,6 @@
 # booty
-Implementing a cache service for learning
+Implementing a cache service for learning /  acquiring fundamentals
+in Rust.
 
 ## Initial Plan
 - Simple api (go/gin) (midgard)
