@@ -1,5 +1,5 @@
 # booty
-Implementing a cache service for learning /  acquiring fundamentals
+Acquiring fundamentals
 in Rust.
 
 ## Initial Plan
